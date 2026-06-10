@@ -75,6 +75,62 @@ tags:
 这里写正文内容。
 ```
 
+## 文章插入图片
+
+当前 `_config.yml` 中 `post_asset_folder` 为 `false`，所以推荐把文章图片统一放到 `source/images/` 下，再在 Markdown 里用站点绝对路径引用。
+
+推荐目录结构：
+
+```text
+source/images/文章主题/
+  图片文件.svg
+  图片文件.png
+  图片文件.jpg
+```
+
+例如文章 `SDD-TDD的探讨.md` 使用的图片放在：
+
+```text
+source/images/sdd-tdd/
+  01_sdd_tdd.drawio.svg
+  02_spec_propagation.drawio.svg
+  04_review.drawio.svg
+```
+
+文章里这样引用：
+
+```markdown
+![图片说明](/images/sdd-tdd/01_sdd_tdd.drawio.svg)
+```
+
+不要在文章里写本机绝对路径，例如：
+
+```markdown
+![图片说明](D:\blog\source\_posts\01_sdd_tdd.drawio.svg)
+```
+
+这种路径只能在本机成立，部署到 GitHub Pages 后浏览器无法访问。
+
+添加图片后的验证流程：
+
+```powershell
+npm run build
+```
+
+构建成功后，在输出中应能看到类似：
+
+```text
+Generated: images/sdd-tdd/01_sdd_tdd.drawio.svg
+```
+
+如果本地预览，需要启动：
+
+```powershell
+npm run server
+```
+
+然后访问文章页面，确认图片正常显示。
+
 ## 发布到 GitHub Pages
 
 写完文章并确认本地预览正常后，执行：
@@ -137,6 +193,7 @@ Custom domain: www.omjmmd.xyz
 
 - 不要手动修改 `public` 目录里的文件，`public` 是构建产物，可以随时重新生成。
 - 不要提交 `node_modules`，依赖可通过 `npm install` 重新安装。
+- 文章图片建议放到 `source/images/文章主题/`，正文用 `/images/文章主题/图片名` 引用，不要使用 `D:\...` 这类本机路径。
 - 修改域名时，需要同时更新 `_config.yml` 和 `source/CNAME`。
 - 如果 GitHub Pages 报 `InvalidDNSError`，优先检查 DNS 是否已经传播完成。
 - 如果本地预览页面不是最新内容，可以先执行 `npm run clean`，再执行 `npm run build` 或重新启动 `npm run server`。
