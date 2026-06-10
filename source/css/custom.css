@@ -11,7 +11,11 @@
 }
 
 .post-content h2 {
-  border-left: 4px solid var(--fluid-accent);
+  border-left: 0;
+  background-image: linear-gradient(var(--fluid-accent), var(--fluid-accent));
+  background-position: left calc(100% - 0.45em);
+  background-repeat: no-repeat;
+  background-size: 4px 1.25em;
   padding-left: 0.65rem;
 }
 
