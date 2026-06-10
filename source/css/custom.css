@@ -1,0 +1,38 @@
+:root {
+  --fluid-accent: #0f766e;
+}
+
+.markdown-body a {
+  text-underline-offset: 3px;
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+}
+
+.post-content h2 {
+  border-left: 4px solid var(--fluid-accent);
+  padding-left: 0.65rem;
+}
+
+.index-card .index-header a:hover,
+.post-content a:hover {
+  color: var(--fluid-accent);
+}
+
+#subtitle {
+  display: block;
+  line-height: 1.45;
+  padding: 0 1rem;
+}
+
+@media (max-width: 576px) {
+  .banner-text .h2 {
+    font-size: 1.45rem;
+  }
+
+  #subtitle {
+    max-width: 15em;
+    margin: 0 auto;
+  }
+}
