@@ -1,56 +1,65 @@
-﻿# 个人博客使用说明
+﻿# 个人博客
 
-这是一个使用 Hexo 搭建、Fluid 主题渲染的个人静态博客项目。
+这是一个基于 [Hexo](https://hexo.io/zh-cn/) 搭建、使用 [hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid) 渲染的个人静态博客项目。
 
-- 博客源码目录：`D:\blog`
-- 线上仓库：`https://github.com/lz17616241962-ops/lz17616241962-ops.github.io`
-- 自定义域名：`www.omjmmd.xyz`
-- 主题：`hexo-theme-fluid`
+- 线上仓库：<https://github.com/lz17616241962-ops/lz17616241962-ops.github.io>
+- 站点域名：<https://www.omjmmd.xyz>
+- 博客框架：[Hexo](https://hexo.io/zh-cn/)
+- 主题仓库：[fluid-dev/hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid)
 
-## 常用命令
+## 快速开始
 
-进入博客目录：
+克隆仓库：
 
-```powershell
-cd D:\blog
+```bash
+git clone https://github.com/lz17616241962-ops/lz17616241962-ops.github.io.git
+cd lz17616241962-ops.github.io
 ```
 
 安装依赖：
 
-```powershell
+```bash
 npm install
 ```
 
-本地预览：
+启动本地预览：
 
-```powershell
+```bash
 npm run server
 ```
 
-浏览器打开：
+生成静态文件：
 
-```text
-http://127.0.0.1:4000
+```bash
+npm run build
 ```
 
-清理缓存和生成文件：
+清理构建缓存：
 
-```powershell
+```bash
 npm run clean
 ```
 
-生成静态网站：
+## 常用命令
 
-```powershell
-npm run build
-```
+| 命令 | 说明 |
+| --- | --- |
+| `npm install` | 安装项目依赖 |
+| `npm run server` | 启动本地预览服务 |
+| `npm run build` | 生成静态网站文件 |
+| `npm run clean` | 清理 Hexo 缓存和构建产物 |
+| `npx hexo new "文章标题"` | 新建一篇文章 |
+| `git status` | 查看工作区变更 |
+| `git add .` | 暂存本次修改 |
+| `git commit -m "更新博客"` | 提交修改 |
+| `git push` | 推送到远程仓库 |
 
 ## 新建文章
 
 新建一篇博客：
 
-```powershell
-hexo new "文章标题"
+```bash
+npx hexo new "文章标题"
 ```
 
 文章会生成在：
@@ -77,7 +86,7 @@ tags:
 
 ## 文章插入图片
 
-当前 `_config.yml` 中 `post_asset_folder` 为 `false`，所以推荐把文章图片统一放到 `source/images/` 下，再在 Markdown 里用站点绝对路径引用。
+当前 `_config.yml` 中 `post_asset_folder` 为 `false`，所以推荐把文章图片统一放到 `source/images/` 下，再在 Markdown 里用站点路径引用。
 
 推荐目录结构：
 
@@ -106,14 +115,14 @@ source/images/sdd-tdd/
 不要在文章里写本机绝对路径，例如：
 
 ```markdown
-![图片说明](D:\blog\source\_posts\01_sdd_tdd.drawio.svg)
+![图片说明](/Users/example/blog/source/_posts/01_sdd_tdd.drawio.svg)
 ```
 
-这种路径只能在本机成立，部署到 GitHub Pages 后浏览器无法访问。
+这类路径只在某一台电脑上成立，部署到 GitHub Pages 后浏览器无法访问。
 
 添加图片后的验证流程：
 
-```powershell
+```bash
 npm run build
 ```
 
@@ -125,7 +134,7 @@ Generated: images/sdd-tdd/01_sdd_tdd.drawio.svg
 
 如果本地预览，需要启动：
 
-```powershell
+```bash
 npm run server
 ```
 
@@ -133,16 +142,16 @@ npm run server
 
 ## 发布到 GitHub Pages
 
-写完文章并确认本地预览正常后，执行：
+写完文章并确认构建正常后，执行：
 
-```powershell
+```bash
 git status
 git add .
 git commit -m "更新博客"
 git push
 ```
 
-推送后 GitHub Actions 会自动构建并部署 `public` 目录。
+推送后 GitHub Actions 会自动构建并部署站点。
 
 ## 域名和 HTTPS
 
@@ -193,7 +202,7 @@ Custom domain: www.omjmmd.xyz
 
 - 不要手动修改 `public` 目录里的文件，`public` 是构建产物，可以随时重新生成。
 - 不要提交 `node_modules`，依赖可通过 `npm install` 重新安装。
-- 文章图片建议放到 `source/images/文章主题/`，正文用 `/images/文章主题/图片名` 引用，不要使用 `D:\...` 这类本机路径。
+- 文章图片建议放到 `source/images/文章主题/`，正文用 `/images/文章主题/图片名` 引用，不要使用本机绝对路径。
 - 修改域名时，需要同时更新 `_config.yml` 和 `source/CNAME`。
 - 如果 GitHub Pages 报 `InvalidDNSError`，优先检查 DNS 是否已经传播完成。
 - 如果本地预览页面不是最新内容，可以先执行 `npm run clean`，再执行 `npm run build` 或重新启动 `npm run server`。
@@ -206,7 +215,7 @@ Custom domain: www.omjmmd.xyz
 
 先检查 DNS：
 
-```powershell
+```bash
 nslookup -type=cname www.omjmmd.xyz 8.8.8.8
 nslookup -type=a omjmmd.xyz 8.8.8.8
 ```
@@ -217,7 +226,7 @@ nslookup -type=a omjmmd.xyz 8.8.8.8
 
 可以换一个端口：
 
-```powershell
+```bash
 hexo server -p 4001
 ```
 
@@ -231,18 +240,18 @@ http://127.0.0.1:4001
 
 先检查当前状态：
 
-```powershell
+```bash
 git status
 ```
 
 如果提示远程有新提交，先拉取：
 
-```powershell
+```bash
 git pull
 ```
 
 再推送：
 
-```powershell
+```bash
 git push
 ```
