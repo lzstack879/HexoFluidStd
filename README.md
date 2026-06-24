@@ -1,8 +1,8 @@
-﻿# 个人博客
+# 个人博客
 
 这是一个基于 [Hexo](https://hexo.io/zh-cn/) 搭建、使用 [hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid) 渲染的个人静态博客项目。
 
-- 线上仓库：<https://github.com/lz17616241962-ops/HexoFluidStd>
+- 线上仓库：<https://github.com/lzstack879/HexoFluidStd>
 - 站点域名：<https://www.omjmmd.xyz>
 - 博客框架：[Hexo](https://hexo.io/zh-cn/)
 - 主题仓库：[fluid-dev/hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid)
@@ -12,7 +12,7 @@
 克隆仓库：
 
 ```bash
-git clone https://github.com/lz17616241962-ops/HexoFluidStd.git
+git clone https://github.com/lzstack879/HexoFluidStd.git
 cd HexoFluidStd
 ```
 
@@ -170,7 +170,7 @@ www.omjmmd.xyz
 DNS 后台需要有以下记录：
 
 ```text
-CNAME  www  lz17616241962-ops.github.io
+CNAME  www  lzstack879.github.io
 A      @    185.199.108.153
 A      @    185.199.109.153
 A      @    185.199.110.153

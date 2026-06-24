@@ -14,10 +14,10 @@ Create this DNS record at your DNS provider:
 ```text
 Type: CNAME
 Name: www
-Value: lz17616241962-ops.github.io
+Value: lzstack879.github.io
 ```
 
-This matches the repository `lz17616241962-ops/lz17616241962-ops.github.io`.
+This matches the repository `lzstack879/lzstack879.github.io`.
 
 ## GitHub Pages
 

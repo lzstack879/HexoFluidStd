@@ -21,7 +21,7 @@ tags:
 
 对应的学习仓库已经整理到 GitHub：
 
-[RAG_Std](https://github.com/lz17616241962-ops/RAG_Std)
+[RAG_Std](https://github.com/lzstack879/RAG_Std)
 
 <!-- more -->
 
@@ -411,7 +411,7 @@ rag-demo/
 
 我已经把这个最小 Demo 整理成一个更适合继续扩展的仓库：
 
-[https://github.com/lz17616241962-ops/RAG_Std](https://github.com/lz17616241962-ops/RAG_Std)
+[https://github.com/lzstack879/RAG_Std](https://github.com/lzstack879/RAG_Std)
 
 先不要急着加太多功能。
 

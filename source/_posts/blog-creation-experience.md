@@ -160,7 +160,7 @@ Front Matter 下面就是正文内容。
 写完博客后，需要把项目推送到 GitHub 仓库：
 
 ```text
-lz17616241962-ops/lz17616241962-ops.github.io
+lzstack879/lzstack879.github.io
 ```
 
 GitHub Pages 可以直接托管静态网站。这个项目使用 GitHub Actions 自动构建，工作流文件是：
@@ -233,7 +233,7 @@ DNS 记录也在 Spaceship 后台配置。
 GitHub Pages 要求 `www` 子域名使用 CNAME 指向 GitHub Pages 地址：
 
 ```text
-CNAME  www  lz17616241962-ops.github.io
+CNAME  www  lzstack879.github.io
 ```
 
 裸域 `omjmmd.xyz` 使用 4 条 A 记录指向 GitHub Pages：
@@ -254,7 +254,7 @@ nslookup -type=cname www.omjmmd.xyz 8.8.8.8
 nslookup -type=a omjmmd.xyz 8.8.8.8
 ```
 
-如果能看到 `www.omjmmd.xyz` 指向 `lz17616241962-ops.github.io`，并且裸域返回 GitHub Pages 的 4 个 IP，就说明 DNS 基本配置成功。
+如果能看到 `www.omjmmd.xyz` 指向 `lzstack879.github.io`，并且裸域返回 GitHub Pages 的 4 个 IP，就说明 DNS 基本配置成功。
 
 ## 开启 HTTPS
 
